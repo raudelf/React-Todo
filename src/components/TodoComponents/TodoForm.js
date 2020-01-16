@@ -15,13 +15,14 @@ class TodoForm extends React.Component {
   submitTask = e => {
     e.preventDefault();
     this.props.addNewTask(this.state.newTask);
+    this.setState({newTask: ''})
   };
 
   render() {
     console.log("Rendering...");
     return (
       <form onSubmit={this.submitTask}>
-        <input onChange={this.renderChanges} type="text" name="task" />
+        <input value={this.state.newTask} onChange={this.renderChanges} type="text" name="task" />
         <button className="add btn">Add</button>
       </form>
     );
